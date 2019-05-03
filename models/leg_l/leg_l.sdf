@@ -1,0 +1,192 @@
+<sdf version="1.4">
+  <model name="closed_chain">
+
+    <link name="leg_l_link0">
+      <pose>0.0 0 0 0 0.0 0</pose>
+      <self_collide>1</self_collide>
+      <collision name="leg_l_link0_collision">
+        <geometry>->                                          
+          <mesh>
+            <uri>model://link02_l_femoral.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="leg_l_link0_visual">
+        <geometry>                                         
+          <mesh>
+            <uri>model://link02_l_femoral.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+
+      <inertial>
+        <mass>0.03433352</mass>
+        <pose>0.02930795 0.03723759 -0.02605386 0 0 0</pose>
+        <inertia>
+          <ixx>0.00002443</ixx>
+          <ixy>-0.00000021</ixy>
+          <iyy>0.00002287</iyy>
+          <ixz>-0.00000021</ixz>
+          <iyz>-0.00000391</iyz>
+          <izz>0.00002983</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <!-- Joints are respect the CHILD in SDF -->
+    <joint type="revolute" name="leg_l_joint1">
+      <pose>0.0433 0.0175 -0.0481 0 0.7854 0</pose>
+      <parent>leg_l_link0</parent>
+      <child>leg_l_link1</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+      </axis>
+    </joint>
+    
+    
+    <link name="leg_l_link1">
+      <self_collide>1</self_collide>
+      <!-- <pose>0 0 0 0 0 0</pose> -->
+      <pose>0.022 0.0175 -0.06015 0 0.7854 0</pose>
+      <collision name="leg_l_link1_collision">
+        <geometry>
+          <mesh>
+            <uri>model://link03_l_leg01.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="leg_l_link1_visual">
+        <geometry>
+          <mesh>
+            <uri>model://link03_l_leg01.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Green</name>
+          </script>
+        </material>
+      </visual>
+      <inertial>
+        <mass>0.18525692</mass>
+        <pose>0.05000000 0.03285059 0.00068146 0 0 0</pose>
+        <inertia>
+          <ixx>0.00041331</ixx>
+          <ixy>-0.00003605</ixy>
+          <iyy>0.00027917</iyy>
+          <ixz>0.00000000</ixz>
+          <iyz>-0.00000184</iyz>
+          <izz>0.00066510</izz>
+        </inertia>
+      </inertial>
+    </link>
+    
+    <joint type="revolute" name="leg_l_joint2">
+      <pose>0.022 0.0175 -0.06015 0 0.7854 0</pose>
+      <parent>leg_l_link0</parent>
+      <child>leg_l_link2</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+      </axis>
+    </joint>
+
+    <link name="leg_l_link2">
+      <self_collide>1</self_collide>
+      <pose>0 0 0 0 0 0</pose>
+      <collision name="leg_l_link2_collision">
+        <geometry>
+          <mesh>
+            <uri>model://link04_l_leg02.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="leg_l_link2_visual">
+        <geometry>
+          <mesh>
+            <uri>model://link04_l_leg02.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Green</name>
+          </script>
+        </material>
+      </visual>
+      <inertial>
+        <mass>0.01646643</mass>
+        <pose>0.05000000 0.02495100 -0.00491150 0 0 0</pose>
+        <inertia>
+          <ixx>0.00000640</ixx>
+          <ixy>0.00000000</ixy>
+          <iyy>0.00001642</iyy>
+          <ixz>0.00000000</ixz>
+          <iyz>0.00000000</iyz>
+          <izz>0.00002264</izz>
+        </inertia>
+      </inertial>
+    </link>
+    
+    <joint type="revolute" name="leg_l_joint3">
+      <pose>0.1 0.0 0.0 0 -0.7854 0</pose>
+      <parent>leg_l_link1</parent>
+      <child>leg_l_link3</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+    <link name="leg_l_link3">
+      <self_collide>1</self_collide>
+      <pose>0 0 0 0 0 0</pose>
+      <collision name="leg_l_link3_collision">
+        <geometry>
+          <mesh>
+            <uri>model://link05_l_knee.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="leg_l_link3_visual">
+        <geometry>
+          <mesh>
+            <uri>model://link05_l_knee.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+      <inertial>
+        <mass>0.01781176</mass>
+        <pose>0.00393357 0.02364163 -0.01930000 0 0 0</pose>
+        <inertia>
+          <ixx>0.00001301</ixx>
+          <ixy>0.00000008</ixy>
+          <iyy>0.00000700</iyy>
+          <ixz>0.00000000</ixz>
+          <iyz>0.00000000</iyz>
+          <izz>0.00001388</izz>
+        </inertia>
+      </inertial>
+    </link>
+    
+    <joint type="revolute" name="leg_l_joint4">
+      <pose>0.0213 0.0 0.01205 0 0.0 0</pose>
+      <parent>leg_l_link3</parent>
+      <child>leg_l_link0</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+  </model>
+</sdf>
+
