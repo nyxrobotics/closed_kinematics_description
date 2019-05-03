@@ -1,0 +1,25 @@
+<package>
+  <name>closed_kinematics_description</name>
+  <version>2.3.11</version>
+  <description>
+     URDF(for Rviz) and SDF(for Gazebo) files for GINKO-ROS.
+  </description>
+  <author>nyxrobotics</author>
+  <author email="a@gmail.com">nyxrobotics</author>
+  <maintainer email="a@gmail.com">nyxrobotics</maintainer>
+  <license>BSD</license>
+  <url type="website">http://</url>
+  <url type="repository">https://github.com/nyxrobotics/GINKO_ROS</url>
+  <url type="bugtracker">https://github.com/nyxrobotics/GINKO_ROS/issues</url>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>urdf</build_depend>
+  <build_depend>xacro</build_depend>
+
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+
+  <test_depend>rostest</test_depend>
+  <test_depend>roslaunch</test_depend>
+</package>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch> 
+
+<include file="$(find spawn_robot_tools_pkg)/launch/spawn_sdf_robotdesc.launch">
+    <arg name="robot_name" value="closed_chain" />
+    <arg name="x" value="0.0" />
+    <arg name="y" value="0.0" />
+    <arg name="z" value="1.0" />
+    <arg name="sdf_robot_file" value="$(find closed_kinematics_description)/sdf/simple_open_chain.sdf" />
+</include>
+
+
+</launch>
