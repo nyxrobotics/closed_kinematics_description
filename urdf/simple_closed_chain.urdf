@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<robot name="closed_chain">
+
+  <link name="right_pad1">
+    <inertial>
+      <mass value="1.41502697"/>
+      <origin rpy="0 0 0" xyz="0.00008301 0.00000908 0.03819562"/>
+      <inertia ixx="0.00248548" ixy="-0.00000074" ixz="0.000003761" iyy="0.00121388" iyz="-0.00000042" izz="0.00287756"/>
+    </inertial>
+    <collision name="right_pad1_collision">
+      <origin rpy="0  0  0" xyz="0.5  0   0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1"/>
+      </geometry>
+    </collision>
+    <visual name="right_pad1_visual">
+      <origin rpy="0  0  0" xyz="0.5  0   0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="right_pad2">
+    <inertial>
+      <mass value="1.41502697"/>
+      <origin rpy="0 0 0" xyz="0.00008301 0.00000908 0.03819562"/>
+      <inertia ixx="0.00248548" ixy="-0.00000074" ixz="0.000003761" iyy="0.00121388" iyz="-0.00000042" izz="0.00287756"/>
+    </inertial>
+    <collision name="right_pad2_collision">
+      <origin rpy="0  0  0" xyz="0.5  0   0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1"/>
+      </geometry>
+    </collision>
+    <visual name="right_pad2_visual">
+      <origin rpy="0  0  0" xyz="0.5  0   0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="right_pad3">
+    <inertial>
+      <mass value="1.41502697"/>
+      <origin rpy="0 0 0" xyz="0.00008301 0.00000908 0.03819562"/>
+      <inertia ixx="0.00248548" ixy="-0.00000074" ixz="0.000003761" iyy="0.00121388" iyz="-0.00000042" izz="0.00287756"/>
+    </inertial>
+    <collision name="right_pad3_collision">
+      <origin rpy="0  0  0" xyz="0.5  0   0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1"/>
+      </geometry>
+    </collision>
+    <visual name="right_pad3_visual">
+      <origin rpy="0  0  0" xyz="0.5  0   0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="right_pad4">
+    <inertial>
+      <mass value="1.41502697"/>
+      <origin rpy="0 0 0" xyz="0.00008301 0.00000908 0.03819562"/>
+      <inertia ixx="0.00248548" ixy="-0.00000074" ixz="0.000003761" iyy="0.00121388" iyz="-0.00000042" izz="0.00287756"/>
+    </inertial>
+    <collision name="right_pad4_collision">
+      <origin rpy="0  0  0" xyz="0.5  0   0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1"/>
+      </geometry>
+    </collision>
+    <visual name="right_pad4_visual">
+      <origin rpy="0  0  0" xyz="0.5  0   0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="right_pad_joint1" type="fixed">
+    <parent link="right_pad1"/>
+    <child link="right_pad2"/>
+    <origin rpy="3.14159 -1.57079  3.14159" xyz="1  0  0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="100" lower="-3.14" upper="3.14" velocity="10."/>
+  </joint>
+  
+  <joint name="right_pad_joint2" type="fixed">
+    <parent link="right_pad2"/>
+    <child link="right_pad3"/>
+    <origin rpy="3.14159 -1.57079  3.14159" xyz="1  0  0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="100" lower="-3.14" upper="3.14" velocity="10."/>
+  </joint>
+
+  <joint name="right_pad_joint3" type="fixed">
+    <parent link="right_pad3"/>
+    <child link="right_pad4"/>
+    <origin rpy="3.14159 -1.57079  3.14159" xyz="1  0  0"/>
+    <axis xyz="0  1  0"/>
+    <limit effort="100" lower="-3.14" upper="3.14" velocity="10."/>
+  </joint>
+
+  <transmission name="right_pad_joint2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_pad_joint2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_pad_joint2_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/closed_chain</robotNamespace>
+    </plugin>
+  </gazebo>
+
+</robot>

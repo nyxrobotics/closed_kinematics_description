@@ -131,19 +131,19 @@
       </visual>
     </link>
     
-    <joint type="revolute" name="right_pad_joint4">
+<!--     <joint type="revolute" name="right_pad_joint4">
       <pose>-0.5 0 0 0 0 0</pose>
       <parent>right_pad4</parent>
       <child>right_pad1</child>
       <axis>
         <xyz>0 1 0</xyz>
       </axis>
-    </joint>
+    </joint> -->
     
 
-    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+<!--     <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
       <robotNamespace>/closed_chain</robotNamespace>
-    </plugin>
+    </plugin> -->
 
   </model>
 </sdf>
