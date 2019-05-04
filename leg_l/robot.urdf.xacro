@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot name="ginko" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:include filename="$(find closed_kinematics_description)/leg_l/leg_l.urdf.xacro"/>
+	<xacro:include filename="$(find closed_kinematics_description)/leg_l/transmission/leg_l.gazebo"/>
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/ginko</robotNamespace>
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+		</plugin>
+	</gazebo>
+	<!-- <link name="base"/> -->
+	<xacro:leg_l name="leg_l" parent="base"/>
+	<xacro:leg_l_gazebo name="leg_l"/>
+</robot>

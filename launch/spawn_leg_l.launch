@@ -2,13 +2,28 @@
 
 <launch> 
 
-<include file="$(find spawn_robot_tools_pkg)/launch/spawn_sdf_robotdesc.launch">
-    <arg name="robot_name" value="closed_chain" />
-    <arg name="x" value="0.0" />
-    <arg name="y" value="0.0" />
-    <arg name="z" value="1.0" />
-    <arg name="sdf_robot_file" value="$(find closed_kinematics_description)/models/leg_l/leg_l.sdf" />
-</include>
+<!-- 	<include file="$(find spawn_robot_tools_pkg)/launch/spawn_sdf_robotdesc.launch">
+	    <arg name="robot_name" value="closed_chain" />
+	    <arg name="x" value="0.0" />
+	    <arg name="y" value="0.0" />
+	    <arg name="z" value="1.0" />
+	    <arg name="sdf_robot_file" value="$(find closed_kinematics_description)/leg_l/leg_l.sdf" />
+	</include> -->
+	<param name="robot_description_sdf" textfile="$(find closed_kinematics_description)/leg_l/leg_l.sdf" />
+	<param name="robot_description" command="$(find xacro)/xacro.py --inorder '$(find closed_kinematics_description)/leg_l/robot.urdf.xacro'" />
+	<node name="spawn_sdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf -param robot_description_sdf -model base -x -2.0 -y 0.33 -z 0.4" />
+	<!-- <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model base -x -2.0 -y 0.33 -z 0.4" /> -->
+	
+	<rosparam file="$(find closed_kinematics_description)/leg_l/config/joint_control.yaml" command="load"/>
 
+	<node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+		output="screen" ns="ginko" args="
+		leg_l_joint1_position_controller
+		leg_l_joint4_position_controller
+		leg_l_joint7_position_controller
+		leg_l_joint8_position_controller
+		joint_state_controller
+		">
+	</node>
 
 </launch>

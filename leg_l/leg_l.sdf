@@ -19,7 +19,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link02_l_femoral.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link02_l_femoral.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -28,7 +28,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link02_l_femoral.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link02_l_femoral.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -52,7 +52,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link03_l_leg01.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link03_l_leg01.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -61,7 +61,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link03_l_leg01.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link03_l_leg01.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -104,7 +104,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link04_l_leg02.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link04_l_leg02.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -113,7 +113,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link04_l_leg02.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link04_l_leg02.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -156,7 +156,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link05_l_knee.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link05_l_knee.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -165,7 +165,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link05_l_knee.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link05_l_knee.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -227,7 +227,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link03_l_leg01.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link03_l_leg01.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -236,7 +236,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link03_l_leg01.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link03_l_leg01.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -279,7 +279,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link04_l_leg02.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link04_l_leg02.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -288,7 +288,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link04_l_leg02.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link04_l_leg02.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -331,7 +331,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link06_l_toe01.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link06_l_toe01.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -340,7 +340,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link06_l_toe01.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link06_l_toe01.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -403,7 +403,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link07_l_toe02.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link07_l_toe02.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -412,7 +412,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link07_l_toe02.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link07_l_toe02.stl</uri>
           </mesh>
         </geometry>
       </visual>
@@ -454,7 +454,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link08_l_toe03.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link08_l_toe03.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -463,7 +463,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://link08_l_toe03.stl</uri>
+            <uri>model://ginko_description/meshes/stl/link08_l_toe03.stl</uri>
           </mesh>
         </geometry>
       </visual>

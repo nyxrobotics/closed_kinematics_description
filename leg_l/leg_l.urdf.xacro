@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="leg_l" params="name parent">
+	<!-- <xacro:property name="name" value="leg"/> -->
+
+		<!-- Link conencts from body. Femoral first. -->
+		<link name="${name}_link0">
+			<!-- Collision created from STL mesh without color -->
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>                                                              
+					<mesh filename="package://ginko_description/meshes/stl/link02_l_femoral.stl"/>
+				</geometry>
+			</collision>
+			<!-- Visualisation created from Color dae -->
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://ginko_description/meshes/stl/link02_l_femoral.stl"/>
+					<!-- <mesh filename="package://ginko_description/meshes/dae/link02_l_femoral.dae"/> -->
+				</geometry>
+			</visual>
+			<inertial>
+				<mass value="0.03433352"/>
+				<origin xyz="0.02930795 0.03723759 -0.02605386" rpy="0 0 0"/>
+				<inertia
+					ixx="0.00002443"
+					ixy="-0.00000021" iyy="0.00002287"
+					ixz="-0.00000021" iyz="-0.00000391" izz="0.00002983"/>
+			</inertial>
+		</link>
+<!-- 		<joint name="${name}_joint0" type="revolute">
+		    <parent link="${parent}"/>
+			<child link="${name}_link0"/>
+			<origin xyz="-0.0404 0.0 -0.0409" rpy="0 0 0"/>
+		    <axis xyz="-1 0 0"/>
+			<limit effort="1000.0" lower="-0.8" upper="1.1781" velocity="0.5"/>
+		</joint> -->
+
+
+		<!-- parallel link (upper-1st) -->
+		<link name="${name}_link1">
+			<!-- Collision created from STL mesh without color -->
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>                                                              
+					<mesh filename="package://ginko_description/meshes/stl/link03_l_leg01.stl"/>
+	    		</geometry>
+			</collision>
+			<!-- Visualisation created from Color dae -->
+	    	<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>
+					<mesh filename="package://ginko_description/meshes/stl/link03_l_leg01.stl"/>
+					<!-- <mesh filename="package://ginko_description/meshes/dae/link03_l_leg01.dae"/> -->
+	    		</geometry>
+			</visual>
+			<inertial>
+				<mass value="0.18525692"/>
+				<origin xyz="0.05000000 0.03285059 0.00068146" rpy="0 0 0"/>
+				<inertia
+					ixx="0.00041331"
+					ixy="-0.00003605" iyy="0.00027917"
+					ixz="-0.00000000" iyz="-0.00000184" izz="0.00066510"/>
+			</inertial>
+		</link>
+		<joint name="${name}_joint1" type="revolute">
+			<parent link="${name}_link0"/>
+			<child  link="${name}_link1"/>
+			<origin xyz="0.0433 0.0175 -0.0481" rpy="0 0.7854 0"/>
+			<axis xyz="0 -1 0"/>
+			<limit effort="1000.0" lower="-1.3" upper="0.7854" velocity="0.5"/>
+		</joint>
+
+		<!-- parallel link (upper-2nd) -->
+		<link name="${name}_link2">
+			<!-- Collision created from STL mesh without color -->
+	    	<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>                                                              
+					<mesh filename="package://ginko_description/meshes/stl/link04_l_leg02.stl"/>
+	    		</geometry>
+			</collision>
+			<!-- Visualisation created from Color dae -->
+	    	<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>                                                              
+					<mesh filename="package://ginko_description/meshes/stl/link04_l_leg02.stl"/>
+					<!-- <mesh filename="package://ginko_description/meshes/dae/link04_l_leg02.dae"/> -->
+	    		</geometry>
+			</visual>
+			<inertial>
+				<mass value="0.01646643"/>
+				<origin xyz="0.05000000 0.02495100 -0.00491150" rpy="0 0 0"/>
+				<inertia
+					ixx="0.00000640"
+					ixy="0.00000000" iyy="0.00001642"
+					ixz="0.00000000" iyz="0.00000000" izz="0.00002264"/>
+			</inertial>
+		</link>
+		<joint name="${name}_joint2" type="revolute">
+	    	<parent link="${name}_link0"/>
+	    	<child  link="${name}_link2"/>
+	    	<origin xyz="0.022 0.0175 -0.06015" rpy="0 0.7854 0"/>
+	    	<axis xyz="0 -1 0"/>
+	    	<limit effort="1000.0" lower="-3.141593" upper="3.141593" velocity="0.5"/>
+	    	<!-- <mimic joint="${name}_joint1" multiplier="1" offset="0"/>  -->
+	  	</joint>
+
+
+		<!-- knee -->
+		<link name="${name}_link3">
+	    	<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>
+					<mesh filename="package://ginko_description/meshes/stl/link05_l_knee.stl"/>
+	    		</geometry>
+			</collision>
+	    	<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>
+					<mesh filename="package://ginko_description/meshes/stl/link05_l_knee.stl"/>
+					<!-- <mesh filename="package://ginko_description/meshes/dae/link05_l_knee.dae"/> -->
+	    		</geometry>
+			</visual>
+			<inertial>
+				<mass value="0.01781176"/>
+				<origin xyz="0.00393357 0.02364163 -0.01930000" rpy="0 0 0"/>
+				<inertia
+					ixx="0.00001301"
+					ixy="0.00000008" iyy="0.00000700"
+					ixz="0.00000000" iyz="0.00000000" izz="0.00001388"/>
+			</inertial>
+		</link>
+		<joint name="${name}_joint3" type="revolute">
+	    	<parent link="${name}_link1"/>
+	    	<child  link="${name}_link3"/>
+	    	<origin xyz="0.1 0.0 0.0" rpy="0 -0.7854 0"/>
+	    	<axis xyz="0 1 0"/>
+	    	<limit effort="1000.0" lower="-3.141593" upper="3.141593" velocity="0.5"/>
+	  	</joint>
+
+
+		<!-- parallel link (lower-1st) -->
+		<link name="${name}_link4">
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>                                                              
+					<mesh filename="package://ginko_description/meshes/stl/link03_l_leg01.stl"/>
+	    		</geometry>
+			</collision>
+	    	<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>
+					<mesh filename="package://ginko_description/meshes/stl/link03_l_leg01.stl"/>
+	    		</geometry>
+			</visual>
+			<inertial>
+				<mass value="0.18525692"/>
+				<origin xyz="0.05000000 0.03285059 0.00068146" rpy="0 0 0"/>
+				<inertia
+					ixx="0.00041331"
+					ixy="-0.00003605" iyy="0.00027917"
+					ixz="-0.00000000" iyz="-0.00000184" izz="0.00066510"/>
+			</inertial>
+		</link>
+		<joint name="${name}_joint4" type="revolute">
+			<parent link="${name}_link3"/>
+			<child  link="${name}_link4"/>
+			<origin xyz="0 0 -0.0386" rpy="0 2.3562 0"/>
+			<axis xyz="0 -1 0"/>
+			<limit effort="1000.0" lower="-0.7854" upper="1.3" velocity="0.5"/>
+		</joint>
+
+		<!-- parallel link (lower-2nd) -->
+		<link name="${name}_link5">
+	    	<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>                                                              
+					<mesh filename="package://ginko_description/meshes/stl/link04_l_leg02.stl"/>
+	    		</geometry>
+			</collision>
+	    	<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>                                                              
+					<mesh filename="package://ginko_description/meshes/stl/link04_l_leg02.stl"/>
+	    		</geometry>
+			</visual>
+			<inertial>
+				<mass value="0.01646643"/>
+				<origin xyz="0.05000000 0.02495100 -0.00491150" rpy="0 0 0"/>
+				<inertia
+					ixx="0.00000640"
+					ixy="0.00000000" iyy="0.00001642"
+					ixz="0.00000000" iyz="0.00000000" izz="0.00002264"/>
+			</inertial>
+		</link>
+		<joint name="${name}_joint5" type="revolute">
+	    	<parent link="${name}_link3"/>
+	    	<child  link="${name}_link5"/>
+	    	<origin xyz="-0.0213 0 -0.02655" rpy="0 2.3562 0"/>
+	    	<axis xyz="0 -1 0"/>
+	    	<limit effort="1000.0" lower="-3.141593" upper="3.141593" velocity="0.5"/>
+	    	<mimic joint="${name}_joint4" multiplier="1" offset="0"/> 
+	  	</joint>
+
+
+
+		<!-- toe -->
+		<link name="${name}_link6">
+	    	<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>                                                              
+					<mesh filename="package://ginko_description/meshes/stl/link06_l_toe01.stl"/>
+	    		</geometry>
+			</collision>
+	    	<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>
+					<mesh filename="package://ginko_description/meshes/stl/link06_l_toe01.stl"/>
+	    		</geometry>
+			</visual>
+			<inertial>
+				<mass value="0.08799204"/>
+				<origin xyz="-0.04166125 0.02463880 -0.02586249" rpy="0 0 0"/>
+				<inertia
+					ixx="0.00002815"
+					ixy="-0.00000041" iyy="0.00006846"
+					ixz="0.00000980" iyz="-0.00000026" izz="0.00006529"/>
+			</inertial>
+		</link>
+		<joint name="${name}_joint6" type="revolute">
+	    	<parent link="${name}_link4"/>
+	    	<child  link="${name}_link6"/>
+	    	<origin xyz="0.1 0.0 0.0" rpy="0 -2.3562 0"/>
+	    	<axis xyz="0 1 0"/>
+	    	<limit effort="1000.0" lower="-3.141593" upper="3.141593" velocity="0.5"/>
+	  	</joint>
+
+		<link name="${name}_link7">
+	    	<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>                                                              
+					<mesh filename="package://ginko_description/meshes/stl/link07_l_toe02.stl"/>
+	    		</geometry>
+			</collision>
+	    	<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>
+					<mesh filename="package://ginko_description/meshes/stl/link07_l_toe02.stl"/>
+	    		</geometry>
+			</visual>
+			<inertial>
+				<mass value="0.10920041"/>
+				<origin xyz="0.02658756 0.00000053 -0.01782468" rpy="0 0 0"/>
+				<inertia
+					ixx="0.00003853"
+					ixy="0.00000000" iyy="0.00005192"
+					ixz="-0.00000479" iyz="0.00000000" izz="0.00003521"/>
+			</inertial>
+		</link>
+		<joint name="${name}_joint7" type="revolute">
+	    	<parent link="${name}_link6"/>
+	    	<child  link="${name}_link7"/>
+	    	<origin xyz="-0.028 0.02475 -0.0391" rpy="0 0 0"/>
+	    	<axis xyz="-1 0 0"/>
+	    	<limit effort="1000.0" lower="-1.6" upper="1.6" velocity="0.5"/>
+	  	</joint>
+
+		<link name="${name}_link8">
+	    	<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>                                                              
+					<mesh filename="package://ginko_description/meshes/stl/link08_l_toe03.stl"/>
+	    		</geometry>
+			</collision>
+	    	<visual>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+	    		<geometry>
+					<mesh filename="package://ginko_description/meshes/stl/link08_l_toe03.stl"/>
+	    		</geometry>
+			</visual>
+			<inertial>
+				<mass value="0.05363111"/>
+				<origin xyz="0.00000000 0.00000000 -0.00269342" rpy="0 0 0"/>
+				<inertia
+					ixx="0.00002877"
+					ixy="0.00000000" iyy="0.00007083"
+					ixz="0.00000000" iyz="-0.00000000" izz="0.00009934"/>
+			</inertial>
+		</link>
+		<joint name="${name}_joint8" type="revolute">
+	    	<parent link="${name}_link7"/>
+	    	<child  link="${name}_link8"/>
+	    	<origin xyz="0.0342 0 -0.04" rpy="0 0 0"/>
+	    	<axis xyz="0 0 1"/>
+	    	<limit effort="1000.0" lower="-2.6" upper="2.6" velocity="0.5"/>
+	  	</joint>
+
+ <!-- toe edges -->
+<!-- 		<link name="${name}_toe_link0"/>
+		<joint name="${name}_toe_joint0" type="fixed">
+	    	<parent link="${name}_link8"/>
+	    	<child  link="${name}_toe_link0"/>
+	    	<origin xyz="0.064 0.040 -0.005" rpy="0 0 0"/>
+	  	</joint>
+		<link name="${name}_toe_link1"/>
+		<joint name="${name}_toe_joint1" type="fixed">
+	    	<parent link="${name}_link8"/>
+	    	<child  link="${name}_toe_link1"/>
+	    	<origin xyz="-0.064 0.040 -0.005" rpy="0 0 0"/>
+	  	</joint>
+		<link name="${name}_toe_link2"/>
+		<joint name="${name}_toe_joint2" type="fixed">
+	    	<parent link="${name}_link8"/>
+	    	<child  link="${name}_toe_link2"/>
+	    	<origin xyz="-0.064 -0.040 -0.005" rpy="0 0 0"/>
+	  	</joint>
+		<link name="${name}_toe_link3"/>
+		<joint name="${name}_toe_joint3" type="fixed">
+	    	<parent link="${name}_link8"/>
+	    	<child  link="${name}_toe_link3"/>
+	    	<origin xyz="0.064 -0.040 -0.005" rpy="0 0 0"/>
+	  	</joint>
+		<link name="${name}_toe_center"/>
+		<joint name="${name}_toe_center_joint" type="fixed">
+	    	<parent link="${name}_link8"/>
+	    	<child  link="${name}_toe_center"/>
+	    	<origin xyz="0.0 0.0 -0.005" rpy="0 0 0"/>
+	  	</joint> -->
+
+	</xacro:macro>
+</robot>
