@@ -203,7 +203,7 @@
 	    	<origin xyz="-0.0213 0 -0.02655" rpy="0 2.3562 0"/>
 	    	<axis xyz="0 -1 0"/>
 	    	<limit effort="1000.0" lower="-3.141593" upper="3.141593" velocity="0.5"/>
-	    	<mimic joint="${name}_joint4" multiplier="1" offset="0"/> 
+	    	<!-- <mimic joint="${name}_joint4" multiplier="1" offset="0"/>  -->
 	  	</joint>
 
 

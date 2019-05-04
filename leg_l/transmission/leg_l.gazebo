@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 
-<robot name="leg_l" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<xacro:macro name="leg_l_gazebo" params="name">
 		<!-- Link conencts from body. Femoral first. -->
 		<gazebo reference="${name}_link0">
@@ -12,18 +12,18 @@
 			<minDepth>0.0001</minDepth>
 			<maxContacts>5</maxContacts>
 			<selfCollide>false</selfCollide>
-			<dampingFactor>0.01</dampingFactor>
+			<!-- <dampingFactor>0.01</dampingFactor> -->
 		</gazebo>
 		<!-- parallel link (upper-1st) -->
 		<gazebo reference="${name}_link1">
-			<kp>1000.0</kp>
+			<kp>10000.0</kp>
 			<kd>0.0</kd>
 			<mu1>0.0</mu1>
 			<maxVel>3.0</maxVel>
 			<minDepth>0.0001</minDepth>
 			<maxContacts>5</maxContacts>
-			<selfCollide>true</selfCollide>
-			<dampingFactor>0.01</dampingFactor>
+			<selfCollide>false</selfCollide>
+			<!-- <dampingFactor>0.01</dampingFactor> -->
 		</gazebo>
 		<!-- parallel link (upper-2nd) -->
 		<gazebo reference="${name}_link2">
@@ -34,7 +34,7 @@
 			<minDepth>0.0001</minDepth>
 			<maxContacts>5</maxContacts>
 			<selfCollide>false</selfCollide>
-			<dampingFactor>0.01</dampingFactor>
+			<!-- <dampingFactor>0.01</dampingFactor> -->
 		</gazebo>
 		<!-- knee -->
 		<gazebo reference="${name}_link3">
@@ -45,18 +45,18 @@
 			<minDepth>0.0001</minDepth>
 			<maxContacts>5</maxContacts>
 			<selfCollide>false</selfCollide>
-			<dampingFactor>0.01</dampingFactor>
+			<!-- <dampingFactor>0.01</dampingFactor> -->
 		</gazebo>
 		<!-- parallel link (lower-1st) -->
 		<gazebo reference="${name}_link4">
-			<kp>1000.0</kp>
+			<kp>10000.0</kp>
 			<kd>0.0</kd>
 			<mu1>0.0</mu1>
 			<maxVel>3.0</maxVel>
 			<minDepth>0.0001</minDepth>
 			<maxContacts>5</maxContacts>
-			<selfCollide>true</selfCollide>
-			<dampingFactor>0.01</dampingFactor>
+			<selfCollide>false</selfCollide>
+			<!-- <dampingFactor>0.01</dampingFactor> -->
 		</gazebo>
 		<!-- parallel link (lower-2nd) -->
 		<gazebo reference="${name}_link5">
@@ -67,7 +67,7 @@
 			<minDepth>0.0001</minDepth>
 			<maxContacts>5</maxContacts>
 			<selfCollide>false</selfCollide>
-			<dampingFactor>0.01</dampingFactor>
+			<!-- <dampingFactor>0.01</dampingFactor> -->
 		</gazebo>
 		<!-- toe -->
 		<gazebo reference="${name}_link6">
@@ -78,7 +78,7 @@
 			<minDepth>0.0001</minDepth>
 			<maxContacts>5</maxContacts>
 			<selfCollide>false</selfCollide>
-			<dampingFactor>0.01</dampingFactor>
+			<!-- <dampingFactor>0.01</dampingFactor> -->
 		</gazebo>
 
 		<gazebo reference="${name}_link7">
@@ -89,7 +89,7 @@
 			<minDepth>0.0001</minDepth>
 			<maxContacts>5</maxContacts>
 			<selfCollide>false</selfCollide>
-			<dampingFactor>0.01</dampingFactor>
+			<!-- <dampingFactor>0.01</dampingFactor> -->
 		</gazebo>
 
 		<gazebo reference="${name}_link8">
@@ -100,7 +100,7 @@
 			<minDepth>0.0001</minDepth>
 			<maxContacts>5</maxContacts>
 			<selfCollide>false</selfCollide>
-			<dampingFactor>0.01</dampingFactor>
+			<!-- <dampingFactor>0.01</dampingFactor> -->
 		</gazebo>
 
 

@@ -11,9 +11,9 @@
 	</include> -->
 	<param name="robot_description_sdf" textfile="$(find closed_kinematics_description)/leg_l/leg_l.sdf" />
 	<param name="robot_description" command="$(find xacro)/xacro.py --inorder '$(find closed_kinematics_description)/leg_l/robot.urdf.xacro'" />
-	<node name="spawn_sdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf -param robot_description_sdf -model base -x -2.0 -y 0.33 -z 0.4" />
-	<!-- <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model base -x -2.0 -y 0.33 -z 0.4" /> -->
-	
+	<!-- <node name="spawn_sdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf -param robot_description_sdf -model base -x -2.0 -y 0.33 -z 0.4" /> -->
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model base -x -2.0 -y 0.33 -z 0.4" />
+
 	<rosparam file="$(find closed_kinematics_description)/leg_l/config/joint_control.yaml" command="load"/>
 
 	<node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
