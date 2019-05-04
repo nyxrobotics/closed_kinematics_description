@@ -6,9 +6,9 @@ closed_chain:
 
   # Position Controllers ---------------------------------------
 
-  closed_chain_right_pad_joint1_controller:
+  joint1_controller:
     type: effort_controllers/JointPositionController
-    joint: closed_chain_right_pad_joint1
+    joint: right_pad_joint1
     pid: {p: 100.0, i: 0.01, d: 10.0}
 
 

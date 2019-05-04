@@ -3,35 +3,26 @@
 <launch> 
 	<param name="robot_description_sdf" textfile="$(find closed_kinematics_description)/sdf/simple_open_chain.sdf" />
 	<param name="robot_description"     textfile="$(find closed_kinematics_description)/urdf/simple_open_chain.urdf" />
-<!-- 	<node
+	<!-- <param name="robot_description" textfile="$(find closed_kinematics_description)/sdf/simple_open_chain.sdf" /> -->
+	<node
 	  name="spawn_model"
 	  pkg="gazebo_ros"
 	  type="spawn_model"
 	  args="-sdf -param robot_description_sdf -model closed_chain -x 0 -y 0.6 -z 0.3"
 	  output="screen">
-	</node> -->
-	<node
+	</node>
+<!-- 	<node
 	  name="spawn_model"
 	  pkg="gazebo_ros"
 	  type="spawn_model"
 	  args="-urdf -param robot_description -model closed_chain -x 0 -y 0.6 -z 0.3"
 	  output="screen">
-	</node>
+	</node> -->
 	<rosparam file="$(find closed_kinematics_description)/config/open_chain.yaml" command="load"/> 
-<!-- 	<rosparam>
-		closed_chain:
-			joint_state_controller:
-				type: joint_state_controller/JointStateController
-				publish_rate: 100
-			closed_chain_right_pad_joint1_controller:
-				type: effort_controllers/JointPositionController
-				joint: closed_chain_right_pad_joint1
-				pid: {p: 100.0, i: 0.01, d: 10.0}
-  	</rosparam> -->
 	<node name="controller_spawner" 
 	    pkg="controller_manager" 
 	    type="spawner" respawn="false" output="screen" ns="/closed_chain"
-	    args="joint1_position_controller joint_state_controller"/>
+	    args="joint1_controller joint_state_controller"/>
 
 <!-- 	<include file="$(find spawn_robot_tools_pkg)/launch/spawn_sdf_robotdesc.launch">
 	    <arg name="robot_name" value="closed_chain" />

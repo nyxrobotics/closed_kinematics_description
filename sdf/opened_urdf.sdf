@@ -1,0 +1,186 @@
+<sdf version='1.6'>
+  <model name='closed_chain'>
+    <link name='right_pad1'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>8.3e-05 9e-06 0.038196 0 -0 0</pose>
+        <mass>1.41503</mass>
+        <inertia>
+          <ixx>0.00248548</ixx>
+          <ixy>-7.4e-07</ixy>
+          <ixz>3.761e-06</ixz>
+          <iyy>0.00121388</iyy>
+          <iyz>-4.2e-07</iyz>
+          <izz>0.00287756</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_pad1_collision_collision'>
+        <pose frame=''>0.5 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='right_pad1_visual_visual'>
+        <pose frame=''>0.5 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <link name='right_pad2'>
+      <pose frame=''>1 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>8.3e-05 9e-06 0.038196 0 -0 0</pose>
+        <mass>1.41503</mass>
+        <inertia>
+          <ixx>0.00248548</ixx>
+          <ixy>-7.4e-07</ixy>
+          <ixz>3.761e-06</ixz>
+          <iyy>0.00121388</iyy>
+          <iyz>-4.2e-07</iyz>
+          <izz>0.00287756</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_pad2_collision_collision'>
+        <pose frame=''>0.5 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='right_pad2_visual_visual'>
+        <pose frame=''>0.5 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_pad_joint1' type='revolute'>
+      <child>right_pad2</child>
+      <parent>right_pad1</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.14</lower>
+          <upper>3.14</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_pad3'>
+      <pose frame=''>2 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>8.3e-05 9e-06 0.038196 0 -0 0</pose>
+        <mass>1.41503</mass>
+        <inertia>
+          <ixx>0.00248548</ixx>
+          <ixy>-7.4e-07</ixy>
+          <ixz>3.761e-06</ixz>
+          <iyy>0.00121388</iyy>
+          <iyz>-4.2e-07</iyz>
+          <izz>0.00287756</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_pad3_collision_collision'>
+        <pose frame=''>0.5 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='right_pad3_visual_visual'>
+        <pose frame=''>0.5 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_pad_joint2' type='revolute'>
+      <child>right_pad3</child>
+      <parent>right_pad2</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.14</lower>
+          <upper>3.14</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_pad4'>
+      <pose frame=''>3 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>8.3e-05 9e-06 0.038196 0 -0 0</pose>
+        <mass>1.41503</mass>
+        <inertia>
+          <ixx>0.00248548</ixx>
+          <ixy>-7.4e-07</ixy>
+          <ixz>3.761e-06</ixz>
+          <iyy>0.00121388</iyy>
+          <iyz>-4.2e-07</iyz>
+          <izz>0.00287756</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_pad4_collision_collision'>
+        <pose frame=''>0.5 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='right_pad4_visual_visual'>
+        <pose frame=''>0.5 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_pad_joint3' type='revolute'>
+      <child>right_pad4</child>
+      <parent>right_pad3</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.14</lower>
+          <upper>3.14</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <static>0</static>
+    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotNamespace>/closed_chain</robotNamespace>
+    </plugin>
+  </model>
+</sdf>
