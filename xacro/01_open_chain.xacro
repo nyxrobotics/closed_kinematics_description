@@ -15,15 +15,15 @@
 
   <link name="right_pad1">
     <collision name="right_pad1_collision">
-      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <origin xyz="0.5 0 0.25" rpy="0 0 0"/>
       <geometry>
-        <box size="1.0 1.0 0.1" />
+        <box size="1.0 1.0 0.5" />
       </geometry>
     </collision>
     <visual name="right_pad1_visual">
-      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <origin xyz="0.5 0 0.25" rpy="0 0 0"/>
       <geometry>
-        <box size="1.0 1.0 0.1" />
+        <box size="1.0 1.0 0.5" />
       </geometry>
       <material name="red"/>
     </visual>
@@ -42,7 +42,7 @@
   <joint name="right_pad1_joint" type="revolute">
     <parent link="right_pad1"/>
     <child  link="right_pad2"/>
-    <origin xyz="1.0 0 0" rpy="0 -1.57 0"/>
+    <origin xyz="1.0 0 0.5" rpy="0 -1.57 0"/>
     <axis xyz="0 1 0"/>
     <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
     <dynamics damping="0" friction="0"/>
@@ -50,13 +50,13 @@
 
   <link name="right_pad2">
     <collision name="right_pad2_collision">
-      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
       <geometry>
         <box size="1.0 1.0 0.1" />
       </geometry>
     </collision>
     <visual name="right_pad2_visual">
-      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
       <geometry>
         <box size="1.0 1.0 0.1" />
       </geometry>
@@ -83,13 +83,13 @@
 
   <link name="right_pad3">
     <collision name="right_pad3_collision">
-      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
       <geometry>
         <box size="1.0 1.0 0.1" />
       </geometry>
     </collision>
     <visual name="right_pad3_visual">
-      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
       <geometry>
         <box size="1.0 1.0 0.1" />
       </geometry>
@@ -116,13 +116,13 @@
 
   <link name="right_pad4">
     <collision name="right_pad4_collision">
-      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
       <geometry>
         <box size="1.0 1.0 0.1" />
       </geometry>
     </collision>
     <visual name="right_pad4_visual">
-      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
       <geometry>
         <box size="1.0 1.0 0.1" />
       </geometry>
