@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<robot name="incorrect_xacro" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <material name="red">
+    <color rgba="1.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="green">
+    <color rgba="0.0 1.0 0.0 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.0 0.0 1.0 1.0"/>
+  </material>
+  <material name="yellow">
+    <color rgba="1.0 1.0 0.0 1.0"/>
+  </material>
+
+  <link name="right_pad1">
+    <collision name="right_pad1_collision">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+    </collision>
+    <visual name="right_pad1_visual">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <inertial>
+      <mass value="0.0005"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia
+        ixx="0.00000001"
+        ixy="0.00000000" iyy="0.00000001"
+        ixz="0.00000000" iyz="0.00000000" izz="0.00000001"/>
+    </inertial>
+  </link>
+
+  <!-- Joints are respect the PARENT in XACRO/URDF -->
+  <!-- Joints are respect the CHILD in SDF -->
+  <joint name="right_pad1_joint" type="revolute">
+    <parent link="right_pad1"/>
+    <child  link="right_pad2"/>
+    <origin xyz="1.0 0 0" rpy="0 -1.57 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
+    <dynamics damping="0" friction="0"/>
+  </joint>
+
+  <link name="right_pad2">
+    <collision name="right_pad2_collision">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+    </collision>
+    <visual name="right_pad2_visual">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+      <material name="green"/>
+    </visual>
+    <inertial>
+      <mass value="0.0005"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia
+        ixx="0.00000001"
+        ixy="0.00000000" iyy="0.00000001"
+        ixz="0.00000000" iyz="0.00000000" izz="0.00000001"/>
+    </inertial>
+  </link>
+
+  <joint name="right_pad2_joint" type="revolute">
+    <parent link="right_pad2"/>
+    <child  link="right_pad3"/>
+    <origin xyz="1.0 0 0" rpy="0 -1.57 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
+    <dynamics damping="0" friction="0"/>
+  </joint>
+
+  <link name="right_pad3">
+    <collision name="right_pad3_collision">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+    </collision>
+    <visual name="right_pad3_visual">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <inertial>
+      <mass value="0.0005"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia
+        ixx="0.00000001"
+        ixy="0.00000000" iyy="0.00000001"
+        ixz="0.00000000" iyz="0.00000000" izz="0.00000001"/>
+    </inertial>
+  </link>
+
+  <joint name="right_pad3_joint" type="revolute">
+    <parent link="right_pad3"/>
+    <child  link="right_pad4"/>
+    <origin xyz="1.0 0 0" rpy="0 -1.57 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
+    <dynamics damping="0" friction="0"/>
+  </joint>
+
+  <link name="right_pad4">
+    <collision name="right_pad4_collision">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+    </collision>
+    <visual name="right_pad4_visual">
+      <origin xyz="0.5 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+      <material name="yellow"/>
+    </visual>
+    <inertial>
+      <mass value="0.0005"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia
+        ixx="0.00000001"
+        ixy="0.00000000" iyy="0.00000001"
+        ixz="0.00000000" iyz="0.00000000" izz="0.00000001"/>
+    </inertial>
+  </link>
+
+
+</robot>
+
