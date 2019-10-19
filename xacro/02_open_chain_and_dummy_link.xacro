@@ -145,7 +145,7 @@
     <origin xyz="1.0 0 0" rpy="0 -1.57 0"/>
     <axis xyz="0 1 0"/>
   </joint>
-  <!-- Dummy of he first link. -->
+  <!-- Dummy of the first link. -->
   <!-- Pleanse input relative joint pose from CHILD link in inertial origin -->
   <link name="dummy0_connection_right_pad1">
     <inertial>
