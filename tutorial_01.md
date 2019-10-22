@@ -3,6 +3,19 @@ tutorial_01
   
 tutorial_01:通常の開いた3節のリンクを作成します  
   
+#### 手順  
+- 以下のサイトを参考にして、簡単なurdfファイルを作成します  
+    - xacroの中身の基本的な説明:https://gbiggs.github.io/rosjp_urdf_tutorial_text/manipulator_urdf.html  
+    - CADモデルのメッシュの使い方:https://qiita.com/RyodoTanaka/items/174e82f06b10f9885265  
+    - 補足  
+        - メッシュをcadから取り込む時の拡張子はstl(色なし), dae(色あり), obj(色有りの場合は+mtl)の3種類  
+        - visual(外観)とcollision(当たり判定)のそれぞれにモデルを設定する必要があります。普通に調べるとvisualの方の先行研究しか出てきませんので注意  
+        - 私の環境では基本的にvisualはobj+mtl(2ファイル合わせて1パーツあたり20kB程度まで荒くしたもの)、collisionはstl(1パーツあたり2kB程度まで荒くしたもの)を使用しています  
+        - __メッシュの取り込み方法は説明が長くなりそうなので別でまとめます。今回は直方体だけで説明します__  
+- 完成したもの: xacro/01_open_chain.xacro  
+    - 中身の確認: launch/01_open_xacro.launch  
+
+
  #### 注意事項  
 ##### - linkについて  
 - link関連のパラメータ:http://wiki.ros.org/urdf/XML/link  
