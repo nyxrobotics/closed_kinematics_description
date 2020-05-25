@@ -35,7 +35,7 @@ Gazeboでループの閉じたリンクを再現する手順を記載します
     - ibroboticsgroup_gazebo_mimic_joint_pluginでhasPIDオプションを使用すると、従属ジョイントは基準ジョイントの目標位置に追従するように独立してPID制御で動く。ロボットが空間に対して静止できるようにはなる。力学的に正しくない(従属リンクは基準リンクと独立して力を出せる)。
 ## よく使うコマンド  
 - xacro→urdf変換:  
-> xacro xacro --inorder -o robot.urdf robot.xacro  
+> rosrun xacro xacro --inorder -o robot.urdf robot.xacro  
 - urdf→sdf変換:  
 > gz sdf -p robot.urdf > robot.sdf  
   
