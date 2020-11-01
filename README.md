@@ -39,4 +39,7 @@ Gazeboでループの閉じたリンクを再現する手順を記載します
 - urdf→sdf変換:  
 > gz sdf -p robot.urdf > robot.sdf  
   
+## 例
+> rosrun xacro xacro --inorder -o export/01_open_chain.urdf 01_open_chain.xacro　　
+> gz sdf -p export/01_open_chain.urdf export/test.sdf --version=1.6  
   
