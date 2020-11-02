@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="true"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="x" default="0.0" />
+  <arg name="y" default="0.0" />
+  <arg name="z" default="0.0" />
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find closed_kinematics_description)/worlds/default.world"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- <param name="robot_description" textfile="$(find closed_kinematics_description)/xacro/04_pegasus.xacro" /> -->
+  <param name="robot_description" command="xacro --inorder '$(find closed_kinematics_description)/xacro/04_pegasus.xacro'" />
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  
+<!--   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+    args="-urdf -model test_robot_01 -param robot_description"/> -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
+    args="-urdf -param robot_description -model test_robot_01 -x $(arg x) -y $(arg y) -z $(arg z)" />
+  <!-- <node name="spawn_sdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf -param robot_description_sdf -model ginko_model -x -0.9 -y 0.0 -z 0.7" /> -->
+</launch>
