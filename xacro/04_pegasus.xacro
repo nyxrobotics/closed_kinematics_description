@@ -164,15 +164,25 @@
     <dampingFactor>0.0</dampingFactor>
   </gazebo>
 
-<!--   <gazebo>
-    <plugin name="Myrobot_ClosedLoopPlugin" filename="libpegasus_gazebo_closed_loop_plugin.so">
-       <joint>add_joint</joint>
-       <child>right_pad1</child>
-       <parent>right_pad4</parent>
-       <position>1.0 0.0 0.0</position>
-       <rotation>0.0 0.0 0.0</rotation>
-    </plugin>
-  </gazebo> -->
+  <gazebo>
+    <joint name='1_to_4_connection_joint' type='revolute'>
+      <pose>0 0 0.5 0 0 0</pose>
+      <child>right_pad1</child>
+      <parent>right_pad4</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+  </gazebo>
 
 </robot>
 
