@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="default_motor_transmission" params="joint_name gazebo_control_mode">
+		<transmission name="${joint_name}_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${joint_name}">
+				<xacro:if value="${gazebo_control_mode=='effort'}">
+					<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+				</xacro:if>
+				<xacro:if value="${gazebo_control_mode=='position'}">
+					<hardwareInterface>Phardware_interface/ositionJointInterface</hardwareInterface> 
+				</xacro:if>
+			</joint>
+			<actuator name="${joint_name}_motor">
+				<xacro:if value="${gazebo_control_mode=='effort'}">
+					<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+				</xacro:if>
+				<xacro:if value="${gazebo_control_mode=='position'}">
+					<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+				</xacro:if>
+				<mechanicalReduction>1</mechanicalReduction>
+			</actuator>
+		</transmission>
+	</xacro:macro>
+</robot>

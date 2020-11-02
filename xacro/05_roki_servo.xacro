@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="test_robot_01" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="roki_gazebo_motor.xacro"/>
+  <material name="red">
+    <color rgba="1.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="green">
+    <color rgba="0.0 1.0 0.0 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.0 0.0 1.0 1.0"/>
+  </material>
+  <material name="yellow">
+    <color rgba="1.0 1.0 0.0 1.0"/>
+  </material>
+
+  <xacro:macro name="box_inertial" params="mass origin d w h">
+    <inertial>
+      <origin xyz="${origin}" rpy="0 0 0"/>
+      <mass value="${mass}"/>
+      <inertia ixx="${mass * (w ** 2 + h ** 2) / 12}"
+               ixy="0.0" iyy="${mass * (d ** 2 + h ** 2) / 12}"
+               ixz="0.0" iyz="0.0" izz="${mass * (w ** 2 + d ** 2) / 12}"/> 
+    </inertial>
+  </xacro:macro>
+
+  <link name="right_pad1">
+    <visual>
+      <origin xyz="0.5 0 0.25" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.5" />
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0.5 0 0.25" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.5" />
+      </geometry>
+    </collision>
+    <xacro:box_inertial mass="0.5" origin="0.5 0 0.25" d="1.0" w="1.0" h="0.5"/>
+  </link>
+  <gazebo reference="right_pad1">
+    <material>Gazebo/Red</material>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>40000.0</kp>
+    <kd>0.0</kd>
+    <minDepth>0.0</minDepth>
+    <maxContacts>5</maxContacts>
+    <selfCollide>false</selfCollide>
+    <dampingFactor>0.0</dampingFactor>
+  </gazebo>
+
+  <!-- Joints are respect the PARENT in XACRO/URDF -->
+  <!-- Joints are respect the CHILD in SDF -->
+  <joint name="right_pad1_joint" type="revolute">
+    <parent link="right_pad1"/>
+    <child  link="right_pad2"/>
+    <origin xyz="1.0 0 0.5" rpy="0 -1.57 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
+    <dynamics damping="0" friction="0"/>
+  </joint>
+
+  <link name="right_pad2">
+    <collision name="right_pad2_collision">
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+    </collision>
+    <visual name="right_pad2_visual">
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+      <material name="green"/>
+    </visual>
+    <xacro:box_inertial mass="0.5" origin="0.5 0 -0.05" d="1.0" w="1.0" h="0.1"/>
+  </link>
+  <gazebo reference="right_pad2">
+    <material>Gazebo/Green</material>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>40000.0</kp>
+    <kd>0.0</kd>
+    <minDepth>0.0</minDepth>
+    <maxContacts>5</maxContacts>
+    <selfCollide>false</selfCollide>
+    <dampingFactor>0.0</dampingFactor>
+  </gazebo>
+
+  <joint name="right_pad2_joint" type="revolute">
+    <parent link="right_pad2"/>
+    <child  link="right_pad3"/>
+    <origin xyz="1.0 0 0" rpy="0 -1.57 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
+    <dynamics damping="0" friction="0"/>
+  </joint>
+
+  <link name="right_pad3">
+    <collision name="right_pad3_collision">
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+    </collision>
+    <visual name="right_pad3_visual">
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <xacro:box_inertial mass="0.5" origin="0.5 0 -0.05" d="1.0" w="1.0" h="0.1"/>
+  </link>
+  <gazebo reference="right_pad3">
+    <material>Gazebo/Blue</material>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>40000.0</kp>
+    <kd>0.0</kd>
+    <minDepth>0.0</minDepth>
+    <maxContacts>5</maxContacts>
+    <selfCollide>false</selfCollide>
+    <dampingFactor>0.0</dampingFactor>
+  </gazebo>
+
+  <joint name="right_pad3_joint" type="revolute">
+    <parent link="right_pad3"/>
+    <child  link="right_pad4"/>
+    <origin xyz="1.0 0 0" rpy="0 -1.57 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
+    <dynamics damping="0" friction="0"/>
+  </joint>
+
+  <link name="right_pad4">
+    <collision name="right_pad4_collision">
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+    </collision>
+    <visual name="right_pad4_visual">
+      <origin xyz="0.5 0 -0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 1.0 0.1" />
+      </geometry>
+      <material name="yellow"/>
+    </visual>
+    <xacro:box_inertial mass="0.5" origin="0.5 0 -0.05" d="1.0" w="1.0" h="0.1"/>
+  </link>
+  <gazebo reference="right_pad4">
+    <material>Gazebo/Yellow</material>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>40000.0</kp>
+    <kd>0.0</kd>
+    <minDepth>0.0</minDepth>
+    <maxContacts>5</maxContacts>
+    <selfCollide>false</selfCollide>
+    <dampingFactor>0.0</dampingFactor>
+  </gazebo>
+
+  <gazebo>
+    <joint name='1_to_4_connection_joint' type='revolute'>
+      <pose>0 0 0.5 0 0 0</pose>
+      <child>right_pad1</child>
+      <parent>right_pad4</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+  </gazebo>
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"> 
+      <robotNamespace>test_robot_01</robotNamespace> 
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS> 
+    </plugin>
+  </gazebo>
+  <xacro:default_motor_transmission joint_name="right_pad2_joint" gazebo_control_mode="effort"/>
+</robot>
+
